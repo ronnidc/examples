@@ -1,8 +1,8 @@
 /* ------ Functional styling -------- */
 .table-component {
+    position: relative;
     overflow-x: auto;
     width: 100%;
-    /* height: 500px; */
     max-height: 60vh;
     /* Unfortunately the overflow container needs a height. 
     Otherwise the sticky header won't work */
@@ -38,7 +38,6 @@ tbody tr > td:first-child {
     }
 } 
 
-
 /* ------ Responsive styling -------- */
 /* Small desktop devices */
 @media (max-width: 1299px) {
@@ -49,6 +48,28 @@ tbody tr > td:first-child {
     }
 }
 
+
+/* ------ Swipe-Info styling -------- */
+.table-component::before {
+    content: "";
+    opacity: 0;
+    transition: opacity .5s;
+    pointer-events: none;
+}
+.show-swipe-info::before {
+    opacity: 1;
+    position:fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-40%);
+    z-index: 4;
+    content: "Swipe horizontalt";
+    background: rgba(255,255,255,.95);
+    color: black; 
+    padding: 1em;
+    border-radius: 10px;
+    font-weight: bold;
+}
 
 /* ------ Decorative styling -------- */
 table {
