@@ -1,18 +1,38 @@
+/* ------ Functional styling -------- */
 table {
     border: none;
     border-collapse: collapse;
+    width: 100%;
+}
 
+thead {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+}
+
+
+/* ------ Responsive styling -------- */
+/* Small desktop devices */
+@media (max-width: 1299px) {
+
+    table td,
+    table th {
+        font-size: smaller;
+    }
+}
+
+
+/* ------ Decorative styling -------- */
+table {
     font-size: 16px;
     font-family: sans-serif;
     text-align: left;
-
-    width: 100%;
 }
 
 table td,
 table th {
     padding: 1em;
-    position: relative;
     transition: font-size 0.1s, padding 0.1s;
 }
 
@@ -26,33 +46,33 @@ table td.align-center {
     text-align: center;
 }
 
+table small {
+    display: block;
+}
+
 thead {
-    position: sticky;
-    inset-block-start: 0;
-    z-index: 2;
-    background-color: white;
-    box-shadow: 0 2px 0 0 gray;
-    /* blink browsers */
+    background-color: WhiteSmoke;
+    box-shadow: 0 2px 0 0 White;
+    /* box-shadow on head for the blink browsers */
 }
 
 thead th {
-    box-shadow: 0 2px 0 0 gray;
-    /* webkit browsers */
+    box-shadow: 0 2px 0 0 White;
+    /* box-shadow on th for thewebkit browsers */
 }
 
-/* Small desktop devices */
-@media (max-width: 1299px) {
-
-    table td,
-    table th {
-        font-size: smaller;
-    }
+table tbody tr:nth-child(even) {
+    background-color: WhiteSmoke;
 }
 
-/* ------ Decorative content styling -------- */
+table tbody tr:last-child {
+    border-block-end: 1px solid WhiteSmoke;
+}
+
 table .in-stock {
     color: green;
 }
+
 table .out-of-stock {
     color: red;
 }
