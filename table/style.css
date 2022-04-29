@@ -1,15 +1,41 @@
 /* ------ Functional styling -------- */
+.table-component {
+    overflow-x: auto;
+    width: 100%;
+    height: 500px;
+    /* Unfortunately the overflow container needs a height. 
+    Otherwise the sticky header won't work */
+}
 table {
     border: none;
     border-collapse: collapse;
     width: 100%;
 }
 
-thead {
+thead tr {
     position: sticky;
     inset-block-start: 0;
     z-index: 2;
 }
+
+/* First cell is fixed on both axis */
+thead tr > th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+}
+
+/* Make the first column sticky */
+tbody tr > td:first-child {
+    position: sticky;
+    left: 0;    
+    z-index: 1;
+}
+@media only screen and (max-width: 991px) { 
+    tbody tr > :first-child {
+        min-width: 150px;
+    }
+} 
 
 
 /* ------ Responsive styling -------- */
@@ -50,18 +76,26 @@ table small {
     display: block;
 }
 
-thead {
-    background-color: WhiteSmoke;
+thead tr {
     box-shadow: 0 2px 0 0 White;
     /* box-shadow on head for the blink browsers */
 }
 
 thead th {
+    background-color: WhiteSmoke;
     box-shadow: 0 2px 0 0 White;
     /* box-shadow on th for thewebkit browsers */
 }
 
-table tbody tr:nth-child(even) {
+tr > :first-child {
+    box-shadow: inset -1px 0 WhiteSmoke; 
+    /* adds a vissible border between first and second column */
+}
+
+table tbody tr:nth-child(odd) td {
+    background-color: White;
+}
+table tbody tr:nth-child(even) td {
     background-color: WhiteSmoke;
 }
 
