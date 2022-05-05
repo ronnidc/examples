@@ -1,9 +1,11 @@
 function showSwipeInfo() {
+
     console.log('touched');
-    setTimeout(function () {
-        document.querySelector('.table-component').classList.add("show-swipe-info");
-    }, 1000);
+    document.querySelector('.table-component').classList.add("show-swipe-info");
+
+    // Reset status after one minute
     setTimeout(function () {
         document.querySelector('.table-component').classList.remove("show-swipe-info");
-    }, 3000);
+    }, 60000);
+
 }
