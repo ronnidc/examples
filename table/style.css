@@ -7,6 +7,7 @@
     /* Unfortunately the overflow container needs a height. 
     Otherwise the sticky header won't work */
 }
+
 table {
     border: none;
     border-collapse: collapse;
@@ -20,23 +21,24 @@ thead tr {
 }
 
 /* First cell is fixed on both axis */
-thead tr > th:first-child {
+thead tr>th:first-child {
     position: sticky;
     left: 0;
     z-index: 3;
 }
 
 /* Make the first column sticky */
-tbody tr > td:first-child {
+tbody tr>td:first-child {
     position: sticky;
-    left: 0;    
+    left: 0;
     z-index: 1;
 }
-@media only screen and (max-width: 991px) { 
-    tbody tr > :first-child {
+
+@media only screen and (max-width: 991px) {
+    tbody tr> :first-child {
         min-width: 150px;
     }
-} 
+}
 
 /* ------ Responsive styling -------- */
 /* Small desktop devices */
@@ -56,16 +58,17 @@ tbody tr > td:first-child {
     transition: opacity .5s;
     pointer-events: none;
 }
+
 .show-swipe-info::before {
     opacity: 1;
-    position:fixed;
-    top: 40%;
+    position: fixed;
+    top: 20%;
     left: 50%;
     transform: translate(-40%);
     z-index: 4;
     content: "Swipe horizontalt";
-    background: rgba(255,255,255,.95);
-    color: black; 
+    background: rgba(255, 255, 255, .95);
+    color: black;
     padding: 1em;
     border-radius: 10px;
     font-weight: bold;
@@ -109,14 +112,15 @@ thead th {
     /* box-shadow on th for thewebkit browsers */
 }
 
-tr > :first-child {
-    box-shadow: inset -1px 0 WhiteSmoke; 
+tr> :first-child {
+    box-shadow: inset -1px 0 WhiteSmoke;
     /* adds a vissible border between first and second column */
 }
 
 table tbody tr:nth-child(odd) td {
     background-color: White;
 }
+
 table tbody tr:nth-child(even) td {
     background-color: WhiteSmoke;
 }
