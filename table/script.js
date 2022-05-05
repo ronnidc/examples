@@ -1,11 +1,21 @@
-function showSwipeInfo() {
+function showTableSwipeInfo() {
 
-    console.log('touched');
-    document.querySelector('.table-component').classList.add("show-swipe-info");
+    const items = document.querySelectorAll(".table-component");
 
-    // Reset status after one minute
-    setTimeout(function () {
-        document.querySelector('.table-component').classList.remove("show-swipe-info");
-    }, 60000);
+    // Loop through table-components on the page:
+    for (var item of items) {
+        item.addEventListener("touchstart", function () {
+
+            document.querySelector('.table-component').classList.add("show-swipe-info");
+
+            // Reset status after one minute
+            setTimeout(function () {
+                document.querySelector('.table-component').classList.remove("show-swipe-info");
+            }, 60000);
+
+        });
+    }
 
 }
+
+showTableSwipeInfo();
