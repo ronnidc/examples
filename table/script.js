@@ -11,7 +11,7 @@ function showTableSwipeInfo() {
             // Animations are all handled in css.
 
             // Reset status after 60 seconds:
-            setTimeout(_ => this.classList.remove(state), (20*1000));
+            setTimeout(_ => this.classList.remove(state), (60*1000));
 
         });
     }
