@@ -54,21 +54,18 @@ tbody tr>td:first-child {
 /* ------ Swipe-Info styling -------- */
 .show-swipe-info::before {
     opacity: 0;
-    content: "Swipe horizontalt";
-    position: fixed;
+    content: "";
     pointer-events: none;
-    top: 35%;
+    position: fixed;
+    z-index: 4;
+    top: 30%;
     left: 50%;
     transform: translate(-50%);
-    z-index: 4;
-    background: rgba(255, 255, 255, .98);
-    border: 1px solid rgba(0, 0, 0, .05);
-    color: #2f495d;
-    font-size: 20px;
-    white-space: nowrap;
-    padding: 1.5em 2em;
+    background: white url(./animation.gif) no-repeat;
+    border: 1px solid #4B4CD8;
     border-radius: 50px;
-    font-weight: bold;
+    width: 180px;
+    height: 180px;
     animation-name: swipe-info;
     animation-duration: 7s;
     animation-delay: 2s;
@@ -81,10 +78,10 @@ tbody tr>td:first-child {
         opacity: 0;
     }
     5% {
-        opacity: 1;
+        opacity: .9;
     }
     95% {
-        opacity: 1;
+        opacity: .9;
     }
     to {
         opacity: 0;
