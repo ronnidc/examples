@@ -1,6 +1,8 @@
 # Table
 
-Link: 
+| *Status: Work In progress*
+
+Preview url: 
 [ronnidc.github.io/examples/table](https://ronnidc.github.io/examples/table)
 
 ### Notes
@@ -11,7 +13,7 @@ could could be applied to define how narrow the viewport should be before `overf
 The class is applied to the table-wrapper element. What class to apply is defined by how wide the amount of table-data is. 
 This decision could be made by inteligent code or by the CMS editor. 
 
-### Inspirational links
+#### Inspirational & usefull links
 
 - https://codepen.io/ronnidc/pen/OJQJGQM
 - https://codepen.io/jon/pen/JZNvap
