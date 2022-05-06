@@ -1,18 +1,17 @@
 function showTableSwipeInfo() {
 
     const items = document.querySelectorAll(".table-component");
+    const state = "show-swipe-info";
 
-    // Loop through table-components on the page:
+    // Loop through all table-components on the page:
     for (var item of items) {
         item.addEventListener("touchstart", function () {
 
-            document.querySelector('.table-component').classList.add("show-swipe-info");
+            this.classList.add(state);
             // Animations are all handled in css.
 
-            // Reset status after one minute:
-            setTimeout(function () {
-                document.querySelector('.table-component').classList.remove("show-swipe-info");
-            }, 60000);
+            // Reset status after 60 seconds:
+            setTimeout(_ => this.classList.remove(state), (20*1000));
 
         });
     }
@@ -20,3 +19,5 @@ function showTableSwipeInfo() {
 }
 
 showTableSwipeInfo();
+
+// To Do: "restart" not working properly
