@@ -62,7 +62,7 @@ tbody tr>td:first-child {
     left: 50%;
     transform: translate(-50%);
     background: white url(./animation.gif) no-repeat;
-    border: 1px solid #4B4CD8;
+    border: 1px solid black;
     border-radius: 50px;
     width: 180px;
     height: 180px;
