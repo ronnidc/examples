@@ -4,7 +4,7 @@
     "description": "Smaller POC projects",
     "main": "index.js",
     "scripts": {
-        "sass-dev": "sass --watch --style=expanded **/styles/*.scss **/styles/*.css"
+        "sass-dev": "sass --watch --update --style=expanded *.scss:*css **/"
     },
     "repository": {
         "type": "git",
