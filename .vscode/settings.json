@@ -2,6 +2,7 @@
     "files.exclude": {
         ".vscode": true,
         "LICENSE": true,
+        "node_modules": true,
         ".gitignore": true
     }
 }
