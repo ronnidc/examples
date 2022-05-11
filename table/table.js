@@ -1,9 +1,9 @@
 function showTableSwipeInfo() {
 
-    const items = document.querySelectorAll(".table-component");
+    const items = document.querySelectorAll(".table");
     const state = "show-swipe-info";
 
-    // Loop through all table-components on the page:
+    // Loop through all tables on the page:
     for (var item of items) {
         item.addEventListener("touchstart", function () {
 
