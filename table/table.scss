@@ -6,147 +6,143 @@
     max-height: 60vh;
     /* Unfortunately the overflow container needs a height. 
     Otherwise the sticky header won't work */
-}
 
-table {
-    border: none;
-    border-collapse: collapse;
-    width: 100%;
-}
 
-thead tr {
-    position: sticky;
-    inset-block-start: 0;
-    z-index: 2;
-}
-
-/* First cell is fixed on both axis */
-thead tr>th:first-child {
-    position: sticky;
-    left: 0;
-    z-index: 3;
-}
-
-/* Make the first column sticky */
-tbody tr>td:first-child {
-    position: sticky;
-    left: 0;
-    z-index: 1;
-}
-
-@media only screen and (max-width: 991px) {
-    tbody tr> :first-child {
-        min-width: 150px;
+    table {
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
     }
-}
 
-/* ------ Responsive styling -------- */
-/* Small desktop devices */
-@media (max-width: 1299px) {
+    thead tr {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+    }
+
+
+    /* Make the first column sticky */
+    tr> :first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        @media only screen and (max-width: 991px) {
+            min-width: 150px;
+        }
+    }
+    // Top-Left cell has a higher z-index
+    thead tr>th:first-child {
+        z-index: 3;
+    }
+
+    /* ------ Responsive styling -------- */
+    /* Small desktop devices */
+    @media (max-width: 1299px) {
+
+        table td,
+        table th {
+            font-size: smaller;
+        }
+    }
+
+
+    /* ------ Swipe-Info styling -------- */
+    &.show-swipe-info::before {
+        opacity: 0;
+        content: "";
+        pointer-events: none;
+        position: fixed;
+        z-index: 4;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%);
+        background: white url(./animation.gif) no-repeat;
+        border: 1px solid black;
+        border-radius: 50px;
+        width: 180px;
+        height: 180px;
+        animation-name: swipe-info;
+        animation-duration: 7s;
+        animation-delay: 2s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes swipe-info {
+        from {
+            opacity: 0;
+        }
+        5% {
+            opacity: .9;
+        }
+        95% {
+            opacity: .9;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    /* ------ Decorative styling -------- */
+    table {
+        font-size: 16px;
+        font-family: sans-serif;
+        text-align: left;
+    }
 
     table td,
     table th {
-        font-size: smaller;
+        padding: 1em;
+        transition: font-size 0.1s, padding 0.1s;
     }
-}
 
-
-/* ------ Swipe-Info styling -------- */
-.show-swipe-info::before {
-    opacity: 0;
-    content: "";
-    pointer-events: none;
-    position: fixed;
-    z-index: 4;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%);
-    background: white url(./animation.gif) no-repeat;
-    border: 1px solid black;
-    border-radius: 50px;
-    width: 180px;
-    height: 180px;
-    animation-name: swipe-info;
-    animation-duration: 7s;
-    animation-delay: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-@keyframes swipe-info {
-    from {
-        opacity: 0;
+    table th.align-right,
+    table td.align-right {
+        text-align: right;
     }
-    5% {
-        opacity: .9;
+
+    table th.align-center,
+    table td.align-center {
+        text-align: center;
     }
-    95% {
-        opacity: .9;
+
+    table small {
+        display: block;
     }
-    to {
-        opacity: 0;
+
+    thead tr {
+        box-shadow: 0 2px 0 0 White;
+        /* box-shadow on head for the blink browsers */
     }
-}
 
-/* ------ Decorative styling -------- */
-table {
-    font-size: 16px;
-    font-family: sans-serif;
-    text-align: left;
-}
+    thead th {
+        background-color: WhiteSmoke;
+        box-shadow: 0 2px 0 0 White;
+        /* box-shadow on th for thewebkit browsers */
+    }
 
-table td,
-table th {
-    padding: 1em;
-    transition: font-size 0.1s, padding 0.1s;
-}
+    tr> :first-child {
+        box-shadow: inset -1px 0 WhiteSmoke;
+        /* adds a vissible border between first and second column */
+    }
 
-table th.align-right,
-table td.align-right {
-    text-align: right;
-}
+    table tbody tr:nth-child(odd) td {
+        background-color: White;
+    }
 
-table th.align-center,
-table td.align-center {
-    text-align: center;
-}
+    table tbody tr:nth-child(even) td {
+        background-color: WhiteSmoke;
+    }
 
-table small {
-    display: block;
-}
+    table tbody tr:last-child {
+        border-block-end: 1px solid WhiteSmoke;
+    }
 
-thead tr {
-    box-shadow: 0 2px 0 0 White;
-    /* box-shadow on head for the blink browsers */
-}
+    table .in-stock {
+        color: green;
+    }
 
-thead th {
-    background-color: WhiteSmoke;
-    box-shadow: 0 2px 0 0 White;
-    /* box-shadow on th for thewebkit browsers */
-}
-
-tr> :first-child {
-    box-shadow: inset -1px 0 WhiteSmoke;
-    /* adds a vissible border between first and second column */
-}
-
-table tbody tr:nth-child(odd) td {
-    background-color: White;
-}
-
-table tbody tr:nth-child(even) td {
-    background-color: WhiteSmoke;
-}
-
-table tbody tr:last-child {
-    border-block-end: 1px solid WhiteSmoke;
-}
-
-table .in-stock {
-    color: green;
-}
-
-table .out-of-stock {
-    color: red;
+    table .out-of-stock {
+        color: red;
+    }
 }
