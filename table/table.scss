@@ -1,12 +1,7 @@
 /* ------ Functional styling -------- */
 .table {
     position: relative;
-    overflow-x: auto;
     width: 100%;
-    max-height: 60vh;
-    /* Unfortunately the overflow container needs a height. 
-    Otherwise the sticky header won't work */
-
 
     table {
         border: none;
@@ -21,18 +16,23 @@
     }
 
 
-    /* Make the first column sticky */
-    tr> :first-child {
-        position: sticky;
-        left: 0;
-        z-index: 1;
-        @media only screen and (max-width: 991px) {
-            min-width: 150px;
+    &.table-sticky-column____ {
+        overflow-x: auto;
+        max-height: 60vh;
+        /* Unfortunately the overflow container needs a height. 
+        Otherwise the sticky header won't work */
+        tr> :first-child {
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            @media only screen and (max-width: 991px) {
+                min-width: 150px;
+            }
         }
-    }
-    // Top-Left cell has a higher z-index
-    thead tr>th:first-child {
-        z-index: 3;
+        thead tr>th:first-child {
+            // Top-Left cell has a higher z-index:
+            z-index: 3;
+        }
     }
 
     /* ------ Responsive styling -------- */
