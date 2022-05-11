@@ -1,0 +1,22 @@
+{
+    "name": "examples",
+    "version": "1.0.0",
+    "description": "Smaller POC projects",
+    "main": "index.js",
+    "scripts": {
+        "sass-dev": "sass --watch --style=expanded **/styles/*.scss **/styles/*.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ronnidc/examples.git"
+    },
+    "author": "Ronni Chidekel",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ronnidc/examples/issues"
+    },
+    "homepage": "https://github.com/ronnidc/examples#readme",
+    "devDependencies": {
+        "sass": "^1.51.0"
+    }
+}
