@@ -1,0 +1,129 @@
+/* ------ Functional styling -------- */
+.table {
+  position: relative;
+  width: 100%;
+  /* ------ Responsive styling -------- */
+  /* Small desktop devices */
+  /* ------ Swipe-Info styling -------- */
+  /* ------ Decorative styling -------- */
+}
+.table table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+}
+.table thead tr {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+}
+.table.table-sticky-column {
+  overflow-x: auto;
+  max-height: 60vh;
+  /* Unfortunately the overflow container needs a height. 
+  Otherwise the sticky header won't work */
+}
+.table.table-sticky-column tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+@media only screen and (max-width: 991px) {
+  .table.table-sticky-column tr > :first-child {
+    min-width: 150px;
+  }
+}
+.table.table-sticky-column thead tr > th:first-child {
+  z-index: 3;
+}
+@media (max-width: 1299px) {
+  .table table td,
+.table table th {
+    font-size: smaller;
+  }
+}
+.table.show-swipe-info::before {
+  opacity: 0;
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  z-index: 4;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  background: white url(./animation.gif) no-repeat;
+  border: 1px solid black;
+  border-radius: 50px;
+  width: 180px;
+  height: 180px;
+  animation-name: swipe-info;
+  animation-duration: 7s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes swipe-info {
+  from {
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.table table {
+  font-size: 16px;
+  font-family: sans-serif;
+  text-align: left;
+}
+.table table td,
+.table table th {
+  padding: 1em;
+  transition: font-size 0.1s, padding 0.1s;
+}
+.table table th.align-right,
+.table table td.align-right {
+  text-align: right;
+}
+.table table th.align-center,
+.table table td.align-center {
+  text-align: center;
+}
+.table table small {
+  display: block;
+}
+.table thead tr {
+  box-shadow: 0 2px 0 0 White;
+  /* box-shadow on head for the blink browsers */
+}
+.table thead th {
+  background-color: WhiteSmoke;
+  box-shadow: 0 2px 0 0 White;
+  /* box-shadow on th for thewebkit browsers */
+}
+.table tr > :first-child {
+  box-shadow: inset -1px 0 WhiteSmoke;
+  /* adds a vissible border between first and second column */
+}
+.table table tbody tr:nth-child(odd) td {
+  background-color: White;
+}
+.table table tbody tr:nth-child(even) td {
+  background-color: WhiteSmoke;
+}
+.table table tbody tr:last-child {
+  border-block-end: 1px solid WhiteSmoke;
+}
+.table table .in-stock {
+  color: green;
+}
+.table table .out-of-stock {
+  color: red;
+}
+
+/*# sourceMappingURL=table.css.map */
