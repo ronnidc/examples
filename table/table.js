@@ -4,6 +4,11 @@ function responsiveTable() {
     const thisItem = document.querySelector(".table"); // ToDo needs to be uniq for this table and not for all tables on the page
     const hasScrollbar = thisItem.scrollWidth > thisItem.offsetWidth;
     const state = "show-swipe-info";
+    //const mediaQuery = window.matchMedia("(max-width:" + thisItem.scrollWidth + "px)");
+
+    console.log("Viewport width: " + thisItem.offsetWidth);
+    console.log("Table width: " + thisItem.scrollWidth);
+    console.log("The table is wider than the page? " + hasScrollbar);
 
     function swipeInfo() {
         item.addEventListener("touchstart", function () {
@@ -12,11 +17,6 @@ function responsiveTable() {
     }
 
     function stickyColumn() {
-        
-        //const mediaQuery = window.matchMedia("(max-width:" + thisItem.scrollWidth + "px)");
-        console.log("Viewport width: " + thisItem.offsetWidth);
-        console.log("Table width: " + thisItem.scrollWidth);
-        console.log("The table is wider than the page? " + hasScrollbar);
 
         if (hasScrollbar) {
             thisItem.classList.add('table-sticky-column');
