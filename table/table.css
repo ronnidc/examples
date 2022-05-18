@@ -57,7 +57,7 @@
   width: 180px;
   height: 180px;
   animation-name: swipe-info;
-  animation-duration: 7s;
+  animation-duration: 3s;
   animation-delay: 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;

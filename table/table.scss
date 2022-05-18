@@ -15,13 +15,12 @@
         z-index: 2;
     }
 
-
     &.table-sticky-column {
         overflow-x: auto;
         max-height: 60vh;
         /* Unfortunately the overflow container needs a height. 
         Otherwise the sticky header won't work */
-        tr> :first-child {
+        tr > :first-child {
             position: sticky;
             left: 0;
             z-index: 1;
@@ -29,7 +28,7 @@
                 min-width: 150px;
             }
         }
-        thead tr>th:first-child {
+        thead tr > th:first-child {
             // Top-Left cell has a higher z-index:
             z-index: 3;
         }
@@ -38,13 +37,11 @@
     /* ------ Responsive styling -------- */
     /* Small desktop devices */
     @media (max-width: 1299px) {
-
         table td,
         table th {
             font-size: smaller;
         }
     }
-
 
     /* ------ Swipe-Info styling -------- */
     &.show-swipe-info::before {
@@ -62,7 +59,7 @@
         width: 180px;
         height: 180px;
         animation-name: swipe-info;
-        animation-duration: 7s;
+        animation-duration: 3s;
         animation-delay: 2s;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
@@ -73,10 +70,10 @@
             opacity: 0;
         }
         5% {
-            opacity: .9;
+            opacity: 0.9;
         }
         95% {
-            opacity: .9;
+            opacity: 0.9;
         }
         to {
             opacity: 0;
@@ -121,7 +118,7 @@
         /* box-shadow on th for thewebkit browsers */
     }
 
-    tr> :first-child {
+    tr > :first-child {
         box-shadow: inset -1px 0 WhiteSmoke;
         /* adds a vissible border between first and second column */
     }

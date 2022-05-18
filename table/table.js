@@ -1,27 +1,31 @@
 function responsiveTable() {
-
     const items = document.querySelectorAll(".table");
-    const thisItem = document.querySelector(".table"); // ToDo needs to be uniq for this table and not for all tables on the page
-    const hasScrollbar = thisItem.scrollWidth > thisItem.offsetWidth;
-    const state = "show-swipe-info";
-    //const mediaQuery = window.matchMedia("(max-width:" + thisItem.scrollWidth + "px)");
-
-    console.log("Viewport width: " + thisItem.offsetWidth);
-    console.log("Table width: " + thisItem.scrollWidth);
-    console.log("The table is wider than the page? " + hasScrollbar);
-
-    function swipeInfo() {
-        item.addEventListener("touchstart", function () {
-            this.classList.add(state); // (Animation is handled in css).
-        });
-    }
 
     function stickyColumn() {
+        const thisItem = document.querySelector(".table"); // ToDo needs to be uniq for THIS table and not for all tables on the page
+        const swipeInfo = "show-swipe-info";
 
-        if (hasScrollbar) {
-            thisItem.classList.add('table-sticky-column');
-            swipeInfo();
+        function detector() {
+            const hasScrollbar = thisItem.scrollWidth > thisItem.offsetWidth;
+            console.log("Viewport width: " + thisItem.offsetWidth);
+            console.log("Table width: " + thisItem.scrollWidth);
+            console.log("The table is wider than the page? " + hasScrollbar);
+
+            if (hasScrollbar) {
+                thisItem.classList.add('table-sticky-column');
+                item.addEventListener("touchstart", function () {
+                    this.classList.add(swipeInfo);
+                });
+            } else if (!hasScrollbar) {
+                thisItem.classList.remove('table-sticky-column');
+                item.classList.remove(swipeInfo);
+                item.addEventListener("touchstart", function () { // ToDo: this listener should be unnecessary
+                    this.classList.remove(swipeInfo);
+                });
+            }
         }
+        detector();
+        window.addEventListener('resize', detector);
     }
 
     // Loop through all tables on the page:
