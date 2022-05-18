@@ -12,12 +12,11 @@ function responsiveTable() {
     function stickyColumn() {
         const thisItem = document.querySelector(".table"); // ToDo needs to be uniq for this table and not for all tables on the page
         const hasScrollbar = thisItem.scrollWidth > thisItem.offsetWidth;
-        console.log("thisItem offsetWidth: " + thisItem.offsetWidth);
-        console.log("thisItem scrollWidth: " + thisItem.scrollWidth);
+        console.log("Viewport width: " + thisItem.offsetWidth);
+        console.log("Table width: " + thisItem.scrollWidth);
         console.log("The table is wider than the page? " + hasScrollbar);
 
         if (hasScrollbar) {
-            console.log("the table is wider than the page")
             thisItem.classList.add('table-sticky-column');
             swipeInfo();
         }
