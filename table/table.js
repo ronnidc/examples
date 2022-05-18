@@ -7,8 +7,8 @@ function responsiveTable() {
 
         function detector() {
             const hasScrollbar = thisItem.scrollWidth > thisItem.offsetWidth;
-            console.log("Viewport width: " + thisItem.offsetWidth);
-            console.log("Table width: " + thisItem.scrollWidth);
+            console.log("div.table width: " + thisItem.offsetWidth);
+            console.log("<table> width: " + thisItem.scrollWidth);
             console.log("The table is wider than the page? " + hasScrollbar);
 
             if (hasScrollbar) {
