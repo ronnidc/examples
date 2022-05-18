@@ -19,7 +19,9 @@
 }
 .table.table-sticky-column {
   overflow-x: auto;
-  max-height: 60vh;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  height: 75vh;
   /* Unfortunately the overflow container needs a height. 
   Otherwise the sticky header won't work */
 }
@@ -27,6 +29,8 @@
   position: sticky;
   left: 0;
   z-index: 1;
+  opacity: 0.92;
+  font-weight: bold;
 }
 @media only screen and (max-width: 991px) {
   .table.table-sticky-column tr > :first-child {
@@ -77,8 +81,6 @@
   }
 }
 .table table {
-  font-size: 16px;
-  font-family: sans-serif;
   text-align: left;
 }
 .table table td,
@@ -94,8 +96,12 @@
 .table table td.align-center {
   text-align: center;
 }
+.table table .nowrap {
+  white-space: nowrap;
+}
 .table table small {
   display: block;
+  font-weight: normal;
 }
 .table thead tr {
   box-shadow: 0 2px 0 0 White;

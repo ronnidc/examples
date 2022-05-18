@@ -5,26 +5,36 @@ function responsiveTable() {
         const thisItem = document.querySelector(".table"); // ToDo needs to be uniq for THIS table and not for all tables on the page
         const swipeInfo = "show-swipe-info";
 
-        function detector() {
-            const hasScrollbar = thisItem.scrollWidth > thisItem.offsetWidth;
-            console.log("div.table width: " + thisItem.offsetWidth);
-            console.log("<table> width: " + thisItem.scrollWidth);
-            console.log("The table is wider than the page? " + hasScrollbar);
+        function newHeight() {
+            const position = thisItem.getBoundingClientRect();
+            const topDistance = position.top.toFixed();
+            const viewportHeight = window.innerHeight;
+            const perfectHeight = viewportHeight - topDistance;
+            thisItem.style.height = perfectHeight + "px";
+        }
 
-            if (hasScrollbar) {
+        function detector() {
+            const wrapperWidth = thisItem.offsetWidth;
+            const tableWidth = thisItem.scrollWidth;
+            const overflowX = tableWidth > wrapperWidth;
+
+            if (overflowX) {
+                newHeight();
                 thisItem.classList.add('table-sticky-column');
                 item.addEventListener("touchstart", function () {
                     this.classList.add(swipeInfo);
                 });
-            } else if (!hasScrollbar) {
+            } else if (!overflowX) {
                 thisItem.classList.remove('table-sticky-column');
+                thisItem.style.height = null;
                 item.classList.remove(swipeInfo);
                 item.addEventListener("touchstart", function () { // ToDo: this listener should be unnecessary
                     this.classList.remove(swipeInfo);
                 });
             }
         }
-        detector();
+        
+        window.addEventListener("load", detector);
         window.addEventListener('resize', detector);
     }
 
@@ -32,7 +42,6 @@ function responsiveTable() {
     for (var item of items) {
         stickyColumn();
     }
-
 }
 
 responsiveTable();

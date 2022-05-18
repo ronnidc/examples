@@ -1,3 +1,5 @@
+// ToDo: Rewrite css to scss. 
+
 /* ------ Functional styling -------- */
 .table {
     position: relative;
@@ -17,13 +19,17 @@
 
     &.table-sticky-column {
         overflow-x: auto;
-        max-height: 60vh;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        height: 75vh; //fallback if js fails.
         /* Unfortunately the overflow container needs a height. 
         Otherwise the sticky header won't work */
         tr > :first-child {
             position: sticky;
             left: 0;
             z-index: 1;
+            opacity: 0.92;
+            font-weight: bold;
             @media only screen and (max-width: 991px) {
                 min-width: 150px;
             }
@@ -82,8 +88,6 @@
 
     /* ------ Decorative styling -------- */
     table {
-        font-size: 16px;
-        font-family: sans-serif;
         text-align: left;
     }
 
@@ -102,9 +106,13 @@
     table td.align-center {
         text-align: center;
     }
+    table .nowrap {
+        white-space: nowrap;
+    }
 
     table small {
         display: block;
+        font-weight: normal;
     }
 
     thead tr {
