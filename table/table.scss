@@ -37,6 +37,7 @@
         thead tr > th:first-child {
             // Top-Left cell has a higher z-index:
             z-index: 3;
+            opacity: 1;
         }
     }
 

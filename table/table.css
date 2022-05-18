@@ -39,6 +39,7 @@
 }
 .table.table-sticky-column thead tr > th:first-child {
   z-index: 3;
+  opacity: 1;
 }
 @media (max-width: 1299px) {
   .table table td,
