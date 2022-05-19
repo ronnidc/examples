@@ -1,3 +1,8 @@
+/* Todo: 
+1. Sticky first column needs to be optional if column 1 is no more leading than column 2, 3, etc. 
+2. Height on scroll? If there is more content on the page, how will the table height be calculated.
+    maybe the perfect height calculation should be set when the table reaches the top of the page? 
+*/  
 function responsiveTable() {
     const items = document.querySelectorAll(".table");
 
@@ -33,7 +38,7 @@ function responsiveTable() {
                 });
             }
         }
-        
+
         window.addEventListener("load", detector);
         window.addEventListener('resize', detector);
     }
