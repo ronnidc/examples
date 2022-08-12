@@ -2,10 +2,6 @@
     "name": "examples",
     "version": "1.0.0",
     "description": "Smaller POC projects",
-    "main": "index.js",
-    "scripts": {
-        "dev": "sass --watch --update --style=expanded *.scss:*css **/"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ronnidc/examples.git"
@@ -16,6 +12,10 @@
         "url": "https://github.com/ronnidc/examples/issues"
     },
     "homepage": "https://github.com/ronnidc/examples#readme",
+    "main": "index.js",
+    "scripts": {
+        "dev": "sass --watch --update --style=expanded *.scss:*css **/"
+    },
     "devDependencies": {
         "sass": "^1.51.0"
     }
