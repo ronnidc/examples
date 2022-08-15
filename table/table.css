@@ -1,3 +1,8 @@
+/* 
+    ToDo 1: Sticky first column needs to be optional if column 1 is no more leading than column 2, 3, etc. 
+            The overflow still needs to be set, so we need to separate into two classNames like 'overflow-x-lock' and 'sticky-column'
+    ToDo 2: Rewrite css to scss. 
+*/
 /* ------ Functional styling -------- */
 .table {
   position: relative;
