@@ -41,4 +41,4 @@ function responsiveTable() {
     }
 }
 
-//responsiveTable();
+responsiveTable();
