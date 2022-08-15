@@ -18,8 +18,8 @@ function responsiveTable() {
             //const perfectHeight = viewportHeight - topDistance;
             const perfectHeight = viewportHeight;
             thisItem.style.height = perfectHeight + "px";
-            console.log(window.innerHeight);
-            console.log(visualViewport.height);
+            //console.log(window.innerHeight);
+            console.log("visualViewport.height: " + visualViewport.height);
             //console.log(topDistance);
         }
 
@@ -31,7 +31,7 @@ function responsiveTable() {
             item.addEventListener("touchstart", function () {
                 const position = thisItem.getBoundingClientRect().top;
                 //const topDistance = position.top.toFixed();
-                console.log(position);
+                console.log("position :" + position);
                 if (overflowX) {
                     thisItem.classList.add('table-sticky-column');
                     // item.addEventListener("touchstart", function () {
