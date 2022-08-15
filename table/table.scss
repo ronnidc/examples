@@ -161,6 +161,7 @@
 .article {
     padding-inline: 1em;
     line-height: 1.5;
+    color: gray;
     @media (max-width: 1299px) {
         font-size: smaller;
     }
@@ -170,5 +171,8 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+    }
+    &.attention {
+        color: black;
     }
 }

@@ -141,6 +141,7 @@
 .article {
   padding-inline: 1em;
   line-height: 1.5;
+  color: gray;
 }
 @media (max-width: 1299px) {
   .article {
@@ -151,6 +152,9 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+.article.attention {
+  color: black;
 }
 
 /*# sourceMappingURL=table.css.map */
