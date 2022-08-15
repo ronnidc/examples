@@ -1,41 +1,33 @@
 /* Todo: 
-1. Sticky first column needs to be optional if column 1 is no more leading than column 2, 3, etc. 
-2. Height on scroll? If there is more content on the page, how will the table height be calculated.
-    maybe the perfect height calculation should be set when the table reaches the top of the page? 
+    1. Sticky first column needs to be optional if column 1 is no more leading than column 2, 3, etc.
 */  
 function responsiveTable() {
     const items = document.querySelectorAll(".table");
 
     function stickyColumn() {
-        const thisItem = document.querySelector(".table"); // ToDo needs to be uniq for THIS table and not for all tables on the page
-        const swipeInfo = "show-swipe-info";
+        const elThisItem = document.querySelector(".table"); // ToDo needs to be uniq for THIS table and not for all tables on the page
+        const clSwipeInfo = "show-swipe-info";
+        const clStickyColumn = "table-sticky-column";
 
         function newHeight() {
-            const position = thisItem.getBoundingClientRect();
-            const topDistance = position.top.toFixed();
-            const viewportHeight = window.innerHeight;
-            const perfectHeight = viewportHeight - topDistance;
-            thisItem.style.height = perfectHeight + "px";
+            const idealHeight = visualViewport.height * 0.6;
+            elThisItem.style.height = idealHeight + "px";
         }
 
         function detector() {
-            const wrapperWidth = thisItem.offsetWidth;
-            const tableWidth = thisItem.scrollWidth;
+            const wrapperWidth = elThisItem.offsetWidth;
+            const tableWidth = elThisItem.scrollWidth;
             const overflowX = tableWidth > wrapperWidth;
 
             if (overflowX) {
                 newHeight();
-                thisItem.classList.add('table-sticky-column');
+                elThisItem.classList.add(clStickyColumn);
                 item.addEventListener("touchstart", function () {
-                    this.classList.add(swipeInfo);
+                    this.classList.add(clSwipeInfo);
                 });
             } else if (!overflowX) {
-                thisItem.classList.remove('table-sticky-column');
-                thisItem.style.height = null;
-                item.classList.remove(swipeInfo);
-                item.addEventListener("touchstart", function () { // ToDo: this listener should be unnecessary
-                    this.classList.remove(swipeInfo);
-                });
+                elThisItem.classList.remove(clStickyColumn);
+                elThisItem.style.height = null;
             }
         }
 
