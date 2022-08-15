@@ -1,5 +1,6 @@
 /* Todo: 
     1. Sticky first column needs to be optional if column 1 is no more leading than column 2, 3, etc.
+    2. Refactor this code. Maybe too many functions / wrappers. 
 */  
 function responsiveTable() {
     const items = document.querySelectorAll(".table");
