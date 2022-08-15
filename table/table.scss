@@ -51,7 +51,8 @@
     /* Small desktop devices */
     @media (max-width: 1299px) {
         table td,
-        table th {
+        table th, 
+        .article {
             font-size: smaller;
         }
     }
@@ -63,16 +64,17 @@
         pointer-events: none;
         position: fixed;
         z-index: 4;
-        top: 30%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%);
-        background: white url(./animation.gif) no-repeat;
+        background: white url(./animation.gif) no-repeat center center;
+        background-size: 100px 100px;
         border: 1px solid black;
-        border-radius: 50px;
-        width: 180px;
-        height: 180px;
+        border-radius: 20px;
+        width: 80px;
+        height: 80px;
         animation-name: swipe-info;
-        animation-duration: 3s;
+        animation-duration: 2s;
         animation-delay: 1s;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
@@ -156,5 +158,20 @@
 
     table .out-of-stock {
         color: red;
+    }
+}
+
+.article {
+    padding-inline: 1em;
+    line-height: 1.5;
+    @media (max-width: 1299px) {
+        font-size: smaller;
+    }
+    p {
+        &:first-child {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     }
 }
