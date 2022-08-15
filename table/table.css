@@ -54,18 +54,21 @@
   pointer-events: none;
   position: fixed;
   z-index: 4;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%);
-  background: white url(./animation.gif) no-repeat center center;
+  background-color: WhiteSmoke;
+  background-image: url(./swipe-static.png);
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: 100px 100px;
   border: 1px solid black;
   border-radius: 20px;
   width: 80px;
   height: 80px;
   animation-name: swipe-info;
-  animation-duration: 2s;
-  animation-delay: 1s;
+  animation-duration: 2.25s;
+  animation-delay: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -73,11 +76,11 @@
   from {
     opacity: 0;
   }
-  5% {
-    opacity: 0.9;
+  25% {
+    opacity: 0.95;
   }
-  95% {
-    opacity: 0.9;
+  75% {
+    opacity: 0.95;
   }
   to {
     opacity: 0;
