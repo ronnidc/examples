@@ -35,3 +35,22 @@ body {
     color: lightgray;
     background-color: dimgray;
 }
+
+.article {
+    padding-inline: 1em;
+    line-height: 1.5;
+    color: gray;
+    @media (max-width: 991px) {
+        font-size: smaller;
+    }
+    p {
+        &:first-child {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+    &.attention {
+        color: black;
+    }
+}

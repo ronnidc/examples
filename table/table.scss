@@ -1,26 +1,15 @@
-/* ------ Functional styling -------- */
 .table {
     position: relative;
     width: 100%;
 
-    table {
-        border: none;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    thead tr {
-        position: sticky;
-        inset-block-start: 0;
-        z-index: 2;
-    }
-
+    /* ------ Functional styles -------- */
     &.no-overflow {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
-        max-height: 70vh; // The table-max-height on mobile devices if sticky column is active.
-        /* (Unfortunately the overflow container needs a height. 
+        max-height: 70vh; 
+        /* The table-max-height on mobile devices if sticky column is active.
+        (Unfortunately the overflow container needs a height. 
         Otherwise the sticky header won't work) */
     }
 
@@ -36,13 +25,13 @@
             }
         }
         thead tr > th:first-child {
-            // Top-Left cell need a higher z-index:
+            /* Top-Left cell need a higher z-index: */
             z-index: 3;
             opacity: 1;
         }
     }
 
-    /* ------ Swipe-Info styling -------- */
+    /* ------ Swipe-Info styles -------- */
     &.swipe-info::before {
         opacity: 0;
         content: "";
@@ -63,21 +52,87 @@
         height: 80px;
         animation-name: swipe-info;
         animation-duration: 2.25s;
-        animation-delay: .5s;
+        animation-delay: 0.5s;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
     }
 
-    /* ------ Responsive styling -------- */
-    /* Small desktop devices */
-    @media (max-width: 1299px) {
-        table td,
-        table th, 
-        .article {
-            font-size: smaller;
+    /* ------ Table styles -------- */
+    table {
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        text-align: left;
+
+        th, td {
+            padding: 1em;
+            transition: font-size 0.1s, padding 0.1s;
+            @media (max-width: 991px) {
+                font-size: smaller;
+            }
         }
     }
 
+    thead {
+        tr {
+            position: sticky;
+            inset-block-start: 0;
+            z-index: 2;
+            box-shadow: 0 2px 0 0 White;
+            /* box-shadow on head for the blink browsers */
+        }
+        th {
+            background-color: WhiteSmoke;
+            box-shadow: 0 2px 0 0 White;
+            /* box-shadow on th for thewebkit browsers */
+        }
+    }
+
+    tbody {
+        tr {
+            &:last-child {
+                border-block-end: 1px solid WhiteSmoke;
+            }
+            > :first-child {
+                box-shadow: inset -1px 0 WhiteSmoke;
+                /* adds a vissible border between first and second column */
+            }
+            &:nth-child(odd) td {
+                background-color: White;
+            }
+            &:nth-child(even) td {
+                background-color: WhiteSmoke;
+            }
+        }
+    }
+
+    /* ------ Table-cells helper styles -------- */
+    .align-right {
+        text-align: right;
+    }
+    .align-center {
+        text-align: center;
+    }
+
+    /* ------ Table Content styles -------- */
+    .nowrap {
+        white-space: nowrap;
+    }
+
+    small {
+        display: block;
+        font-weight: normal;
+    }
+
+    .in-stock {
+        color: green;
+    }
+
+    .out-of-stock {
+        color: red;
+    }
+    
+    /* ------ Animation keyframes for swipe info graphic -------- */
     @keyframes swipe-info {
         from {
             opacity: 0;
@@ -91,89 +146,5 @@
         to {
             opacity: 0;
         }
-    }
-
-    /* ------ Decorative styling -------- */
-    table {
-        text-align: left;
-    }
-
-    table td,
-    table th {
-        padding: 1em;
-        transition: font-size 0.1s, padding 0.1s;
-    }
-
-    table th.align-right,
-    table td.align-right {
-        text-align: right;
-    }
-
-    table th.align-center,
-    table td.align-center {
-        text-align: center;
-    }
-    table .nowrap {
-        white-space: nowrap;
-    }
-
-    table small {
-        display: block;
-        font-weight: normal;
-    }
-
-    thead tr {
-        box-shadow: 0 2px 0 0 White;
-        /* box-shadow on head for the blink browsers */
-    }
-
-    thead th {
-        background-color: WhiteSmoke;
-        box-shadow: 0 2px 0 0 White;
-        /* box-shadow on th for thewebkit browsers */
-    }
-
-    tr > :first-child {
-        box-shadow: inset -1px 0 WhiteSmoke;
-        /* adds a vissible border between first and second column */
-    }
-
-    table tbody tr:nth-child(odd) td {
-        background-color: White;
-    }
-
-    table tbody tr:nth-child(even) td {
-        background-color: WhiteSmoke;
-    }
-
-    table tbody tr:last-child {
-        border-block-end: 1px solid WhiteSmoke;
-    }
-
-    table .in-stock {
-        color: green;
-    }
-
-    table .out-of-stock {
-        color: red;
-    }
-}
-
-.article {
-    padding-inline: 1em;
-    line-height: 1.5;
-    color: gray;
-    @media (max-width: 1299px) {
-        font-size: smaller;
-    }
-    p {
-        &:first-child {
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-    }
-    &.attention {
-        color: black;
     }
 }

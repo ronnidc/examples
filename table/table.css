@@ -1,28 +1,20 @@
-/* ------ Functional styling -------- */
 .table {
   position: relative;
   width: 100%;
-  /* ------ Swipe-Info styling -------- */
-  /* ------ Responsive styling -------- */
-  /* Small desktop devices */
-  /* ------ Decorative styling -------- */
-}
-.table table {
-  border: none;
-  border-collapse: collapse;
-  width: 100%;
-}
-.table thead tr {
-  position: sticky;
-  inset-block-start: 0;
-  z-index: 2;
+  /* ------ Functional styles -------- */
+  /* ------ Swipe-Info styles -------- */
+  /* ------ Table styles -------- */
+  /* ------ Table-cells helper styles -------- */
+  /* ------ Table Content styles -------- */
+  /* ------ Animation keyframes for swipe info graphic -------- */
 }
 .table.no-overflow {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   max-height: 70vh;
-  /* (Unfortunately the overflow container needs a height. 
+  /* The table-max-height on mobile devices if sticky column is active.
+  (Unfortunately the overflow container needs a height. 
   Otherwise the sticky header won't work) */
 }
 .table.sticky-column tr > :first-child {
@@ -38,6 +30,7 @@
   }
 }
 .table.sticky-column thead tr > th:first-child {
+  /* Top-Left cell need a higher z-index: */
   z-index: 3;
   opacity: 1;
 }
@@ -65,12 +58,64 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-@media (max-width: 1299px) {
-  .table table td,
-.table table th,
-.table .article {
+.table table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+.table table th, .table table td {
+  padding: 1em;
+  transition: font-size 0.1s, padding 0.1s;
+}
+@media (max-width: 991px) {
+  .table table th, .table table td {
     font-size: smaller;
   }
+}
+.table thead tr {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+  box-shadow: 0 2px 0 0 White;
+  /* box-shadow on head for the blink browsers */
+}
+.table thead th {
+  background-color: WhiteSmoke;
+  box-shadow: 0 2px 0 0 White;
+  /* box-shadow on th for thewebkit browsers */
+}
+.table tbody tr:last-child {
+  border-block-end: 1px solid WhiteSmoke;
+}
+.table tbody tr > :first-child {
+  box-shadow: inset -1px 0 WhiteSmoke;
+  /* adds a vissible border between first and second column */
+}
+.table tbody tr:nth-child(odd) td {
+  background-color: White;
+}
+.table tbody tr:nth-child(even) td {
+  background-color: WhiteSmoke;
+}
+.table .align-right {
+  text-align: right;
+}
+.table .align-center {
+  text-align: center;
+}
+.table .nowrap {
+  white-space: nowrap;
+}
+.table small {
+  display: block;
+  font-weight: normal;
+}
+.table .in-stock {
+  color: green;
+}
+.table .out-of-stock {
+  color: red;
 }
 @keyframes swipe-info {
   from {
@@ -85,76 +130,6 @@
   to {
     opacity: 0;
   }
-}
-.table table {
-  text-align: left;
-}
-.table table td,
-.table table th {
-  padding: 1em;
-  transition: font-size 0.1s, padding 0.1s;
-}
-.table table th.align-right,
-.table table td.align-right {
-  text-align: right;
-}
-.table table th.align-center,
-.table table td.align-center {
-  text-align: center;
-}
-.table table .nowrap {
-  white-space: nowrap;
-}
-.table table small {
-  display: block;
-  font-weight: normal;
-}
-.table thead tr {
-  box-shadow: 0 2px 0 0 White;
-  /* box-shadow on head for the blink browsers */
-}
-.table thead th {
-  background-color: WhiteSmoke;
-  box-shadow: 0 2px 0 0 White;
-  /* box-shadow on th for thewebkit browsers */
-}
-.table tr > :first-child {
-  box-shadow: inset -1px 0 WhiteSmoke;
-  /* adds a vissible border between first and second column */
-}
-.table table tbody tr:nth-child(odd) td {
-  background-color: White;
-}
-.table table tbody tr:nth-child(even) td {
-  background-color: WhiteSmoke;
-}
-.table table tbody tr:last-child {
-  border-block-end: 1px solid WhiteSmoke;
-}
-.table table .in-stock {
-  color: green;
-}
-.table table .out-of-stock {
-  color: red;
-}
-
-.article {
-  padding-inline: 1em;
-  line-height: 1.5;
-  color: gray;
-}
-@media (max-width: 1299px) {
-  .article {
-    font-size: smaller;
-  }
-}
-.article p:first-child {
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.article.attention {
-  color: black;
 }
 
 /*# sourceMappingURL=table.css.map */

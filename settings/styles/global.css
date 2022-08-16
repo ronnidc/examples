@@ -36,4 +36,23 @@ body {
   background-color: dimgray;
 }
 
+.article {
+  padding-inline: 1em;
+  line-height: 1.5;
+  color: gray;
+}
+@media (max-width: 991px) {
+  .article {
+    font-size: smaller;
+  }
+}
+.article p:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.article.attention {
+  color: black;
+}
+
 /*# sourceMappingURL=global.css.map */
