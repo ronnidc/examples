@@ -4,22 +4,34 @@ function responsiveTable() {
 
     items.forEach(function (item) {
 
-        const clSwipeInfo = "show-swipe-info";
-        const clStickyColumn = "table-sticky-column";
+        const swipeInfoClass = "swipe-info";
+        const stickyColumnClass = "sticky-column";
+        const overflowClass = "no-overflow";
 
         function detector() {
             const parentWidth = item.offsetWidth;
             const tableWidth = item.scrollWidth;
             const overflowX = tableWidth > parentWidth;
+            const leadingColumn = item.dataset.leadingcolumn;
 
             if (overflowX) {
-                item.classList.add(clStickyColumn);
+
+                item.classList.add(overflowClass);
+
+                if (leadingColumn) {
+                    item.classList.add(stickyColumnClass);
+                };
+
                 item.addEventListener("touchstart", function () {
-                    this.classList.add(clSwipeInfo);
+                    this.classList.add(swipeInfoClass);
                 });
+
             } else if (!overflowX) {
-                item.classList.remove(clStickyColumn);
-            }
+                item.addEventListener("touchstart", function () {
+                    this.classList.remove(swipeInfoClass);
+                });
+                item.classList.remove(stickyColumnClass, overflowClass, swipeInfoClass);
+            };
         }
 
         window.addEventListener("load", detector);
