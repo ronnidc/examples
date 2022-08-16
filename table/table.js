@@ -27,7 +27,7 @@ function responsiveTable() {
                 });
 
             } else if (!overflowX) {
-                item.addEventListener("touchstart", function () {
+                item.addEventListener("touchstart", function () { // this is stupid but necessary for now.
                     this.classList.remove(swipeInfoClass);
                 });
                 item.classList.remove(stickyColumnClass, overflowClass, swipeInfoClass);
