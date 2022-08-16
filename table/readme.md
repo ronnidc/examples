@@ -10,7 +10,7 @@ Preview url:
 #### To Do:
 
 1. Sticky first column needs to be optional if column 1 is no more leading than column 2, 3, etc.
-2. Refactor this code. Maybe too many functions / wrappers. 
+2. Refactor js code. Maybe too many functions / wrappers. 
 
 #### Inspirational & usefull links
 
