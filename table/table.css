@@ -2,9 +2,9 @@
 .table {
   position: relative;
   width: 100%;
+  /* ------ Swipe-Info styling -------- */
   /* ------ Responsive styling -------- */
   /* Small desktop devices */
-  /* ------ Swipe-Info styling -------- */
   /* ------ Decorative styling -------- */
 }
 .table table {
@@ -17,15 +17,15 @@
   inset-block-start: 0;
   z-index: 2;
 }
-.table.table-sticky-column {
+.table.no-overflow {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  max-height: 60vh;
+  max-height: 70vh;
   /* (Unfortunately the overflow container needs a height. 
   Otherwise the sticky header won't work) */
 }
-.table.table-sticky-column tr > :first-child {
+.table.sticky-column tr > :first-child {
   position: sticky;
   left: 0;
   z-index: 1;
@@ -33,22 +33,15 @@
   font-weight: bold;
 }
 @media only screen and (max-width: 991px) {
-  .table.table-sticky-column tr > :first-child {
+  .table.sticky-column tr > :first-child {
     min-width: 150px;
   }
 }
-.table.table-sticky-column thead tr > th:first-child {
+.table.sticky-column thead tr > th:first-child {
   z-index: 3;
   opacity: 1;
 }
-@media (max-width: 1299px) {
-  .table table td,
-.table table th,
-.table .article {
-    font-size: smaller;
-  }
-}
-.table.show-swipe-info::before {
+.table.swipe-info::before {
   opacity: 0;
   content: "";
   pointer-events: none;
@@ -71,6 +64,13 @@
   animation-delay: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+@media (max-width: 1299px) {
+  .table table td,
+.table table th,
+.table .article {
+    font-size: smaller;
+  }
 }
 @keyframes swipe-info {
   from {

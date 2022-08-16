@@ -15,13 +15,16 @@
         z-index: 2;
     }
 
-    &.table-sticky-column {
+    &.no-overflow {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
-        max-height: 60vh; // The table-max-height on mobile devices if sticky column is active.
+        max-height: 70vh; // The table-max-height on mobile devices if sticky column is active.
         /* (Unfortunately the overflow container needs a height. 
         Otherwise the sticky header won't work) */
+    }
+
+    &.sticky-column {
         tr > :first-child {
             position: sticky;
             left: 0;
@@ -33,24 +36,14 @@
             }
         }
         thead tr > th:first-child {
-            // Top-Left cell has a higher z-index:
+            // Top-Left cell need a higher z-index:
             z-index: 3;
             opacity: 1;
         }
     }
 
-    /* ------ Responsive styling -------- */
-    /* Small desktop devices */
-    @media (max-width: 1299px) {
-        table td,
-        table th, 
-        .article {
-            font-size: smaller;
-        }
-    }
-
     /* ------ Swipe-Info styling -------- */
-    &.show-swipe-info::before {
+    &.swipe-info::before {
         opacity: 0;
         content: "";
         pointer-events: none;
@@ -73,6 +66,16 @@
         animation-delay: .5s;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
+    }
+
+    /* ------ Responsive styling -------- */
+    /* Small desktop devices */
+    @media (max-width: 1299px) {
+        table td,
+        table th, 
+        .article {
+            font-size: smaller;
+        }
     }
 
     @keyframes swipe-info {
