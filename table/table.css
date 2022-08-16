@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   /* ------ Functional styles -------- */
-  /* ------ Swipe-Info styles -------- */
   /* ------ Table styles -------- */
   /* ------ Table-cells helper styles -------- */
   /* ------ Table Content styles -------- */
@@ -16,25 +15,9 @@
   /* The table-max-height on mobile devices if sticky column is active.
   (Unfortunately the overflow container needs a height. 
   Otherwise the sticky header won't work) */
+  /* ------ Swipe-Info styles -------- */
 }
-.table.sticky-column tr > :first-child {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  opacity: 0.92;
-  font-weight: bold;
-}
-@media only screen and (max-width: 991px) {
-  .table.sticky-column tr > :first-child {
-    min-width: 150px;
-  }
-}
-.table.sticky-column thead tr > th:first-child {
-  /* Top-Left cell need a higher z-index: */
-  z-index: 3;
-  opacity: 1;
-}
-.table.swipe-info::before {
+.table.no-overflow.swipe-info::before {
   opacity: 0;
   content: "";
   pointer-events: none;
@@ -58,6 +41,28 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+.table.sticky-header thead tr {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+}
+.table.sticky-column tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  opacity: 0.92;
+  font-weight: bold;
+}
+@media only screen and (max-width: 991px) {
+  .table.sticky-column tr > :first-child {
+    min-width: 150px;
+  }
+}
+.table.sticky-column thead tr > th:first-child {
+  /* Top-Left cell need a higher z-index: */
+  z-index: 3;
+  opacity: 1;
+}
 .table table {
   border: none;
   border-collapse: collapse;
@@ -74,9 +79,6 @@
   }
 }
 .table thead tr {
-  position: sticky;
-  inset-block-start: 0;
-  z-index: 2;
   box-shadow: 0 2px 0 0 White;
   /* box-shadow on head for the blink browsers */
 }

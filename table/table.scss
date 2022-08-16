@@ -11,6 +11,40 @@
         /* The table-max-height on mobile devices if sticky column is active.
         (Unfortunately the overflow container needs a height. 
         Otherwise the sticky header won't work) */
+
+        /* ------ Swipe-Info styles -------- */
+        &.swipe-info::before {
+            opacity: 0;
+            content: "";
+            pointer-events: none;
+            position: fixed;
+            z-index: 4;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%);
+            background-color: WhiteSmoke;
+            background-image: url(./swipe-static.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100px 100px;
+            border: 1px solid black;
+            border-radius: 20px;
+            width: 80px;
+            height: 80px;
+            animation-name: swipe-info;
+            animation-duration: 2.25s;
+            animation-delay: 0.5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    &.sticky-header {
+        thead tr {
+            position: sticky;
+            inset-block-start: 0;
+            z-index: 2;
+        }
     }
 
     &.sticky-column {
@@ -31,32 +65,6 @@
         }
     }
 
-    /* ------ Swipe-Info styles -------- */
-    &.swipe-info::before {
-        opacity: 0;
-        content: "";
-        pointer-events: none;
-        position: fixed;
-        z-index: 4;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%);
-        background-color: WhiteSmoke;
-        background-image: url(./swipe-static.png);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 100px 100px;
-        border: 1px solid black;
-        border-radius: 20px;
-        width: 80px;
-        height: 80px;
-        animation-name: swipe-info;
-        animation-duration: 2.25s;
-        animation-delay: 0.5s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-    }
-
     /* ------ Table styles -------- */
     table {
         border: none;
@@ -75,9 +83,6 @@
 
     thead {
         tr {
-            position: sticky;
-            inset-block-start: 0;
-            z-index: 2;
             box-shadow: 0 2px 0 0 White;
             /* box-shadow on head for the blink browsers */
         }
