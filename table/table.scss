@@ -19,9 +19,9 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
-        height: 75vh; //fallback if js fails.
-        /* Unfortunately the overflow container needs a height. 
-        Otherwise the sticky header won't work */
+        max-height: 60vh; // The table-max-height on mobile devices if sticky column is active.
+        /* (Unfortunately the overflow container needs a height. 
+        Otherwise the sticky header won't work) */
         tr > :first-child {
             position: sticky;
             left: 0;
