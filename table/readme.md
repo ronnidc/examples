@@ -2,6 +2,10 @@
 
 | *Status: Ready for production use*
 
+Todo
+
+1. Will it be possible for the sticky column to work without the overflow-x property? Would something like `max-width:100%;` on the table be enough? 
+
 Preview url: 
 [ronnidc.github.io/examples/table](https://ronnidc.github.io/examples/table)
 
