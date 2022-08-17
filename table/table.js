@@ -19,21 +19,20 @@ function responsiveTable() {
             if (stickyHeader) {
                 item.classList.add(stickyHeaderClass);
             };
+            if (stickyColumn) {
+                item.classList.add(stickyColumnClass);
+            };
 
             if (overflowX) {
 
                 item.classList.add(overflowClass);
-
-                if (stickyColumn) {
-                    item.classList.add(stickyColumnClass);
-                };
-
+                
                 item.addEventListener("touchstart", function () {
                     this.classList.add(swipeInfoClass);
                 });
 
             } else if (!overflowX) {
-                item.classList.remove(stickyColumnClass, overflowClass, swipeInfoClass);
+                item.classList.remove(overflowClass, swipeInfoClass);
             };
         }
 
