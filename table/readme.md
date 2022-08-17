@@ -1,4 +1,4 @@
-# Table
+# The Perfect Responsive Table
 
 | *Status: Ready for production use*
 
