@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple Accordion</title>
+    <meta name="description" content="An example of a perfect responsive table with sticky header and first column">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="../settings/styles/global.css">
+    <link rel="stylesheet" href="./accordion.css">
+</head>
+
+<body>
+    <img class="hero" src="../settings/images/accordion.jpg" />
+
+    <hr class="spacer" />
+
+    <section class="container">
+        <article class="article">
+            <p>Accordion based on CSS max-height.</p>
+            <p>This is an old version but the javascript can stil be used as startingpoint for a better accordion still being kept simple. Maybe flexbox can do the trick..</p>
+        </article>
+    </section>
+
+    <hr class="spacer" />
+
+    <section class="accordion-component">
+  
+        <div class="item js-accordion-item">
+          <a class="cta js-accordion-cta">Accordion Title 1 (cta)</a>
+          <div class="target js-accordion-target">
+            <h3>Lorem ipsum item</h3>
+            <p>Content lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        
+        <div class="item js-accordion-item">
+          <a class="cta js-accordion-cta">Accordion Title 2 (cta)</a>
+          <div class="target js-accordion-target">
+            <h3>Lorem ipsum item</h3>
+            <p>Content lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        
+        <div class="item js-accordion-item">
+          <a class="cta js-accordion-cta">Accordion Title 3 (cta)</a>
+          <div class="target js-accordion-target">
+            <h3>Lorem ipsum item</h3>
+            <p>Content lorem ipsum dolor sit amet, consectetur elit consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum.</p>
+          </div>
+        </div>
+          
+      </section>
+
+    <hr class="spacer" />
+
+    <footer class="footer">
+        Footer
+    </footer>
+
+    <script src="./accordion.js"></script>
+</body>
+
+</html>

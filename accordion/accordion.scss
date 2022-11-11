@@ -1,0 +1,52 @@
+body {
+    background: #ddd;
+    overflow-y: scroll;
+}
+.accordion-component {
+    max-width: 500px;
+    margin: 1em auto;
+}
+
+.item {
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 1em;
+    border-radius: 4px;
+    color: orangered;
+}
+.cta {
+    color: darkcyan;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-weight: bold;
+    &::after {
+        content: "";
+        display: inline-block;
+        position: relative;
+        left: 4px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        background: url("https://assets.codepen.io/67710/icon.png") 0 0 no-repeat;
+        transition: transform 0.2s ease-in-out, background-position 0.2s ease-in-out;
+    }
+    &:hover {
+        color: orangered;
+    }
+    &.active {
+        color: darkcyan;
+        &:after {
+            transform: rotate(90deg);
+            background-position: 2px 0;
+        }
+    }
+}
+.target {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    line-height: 1.5;
+    &.active {
+        max-height: 200px;
+    }
+}
