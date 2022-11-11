@@ -14,9 +14,9 @@
     "homepage": "https://github.com/ronnidc/examples#readme",
     "main": "index.js",
     "scripts": {
-        "dev": "sass --watch --update --style=expanded *.scss:*css **/"
+        "dev": "sass --watch --update --style=expanded *.scss:*css ./"
     },
     "devDependencies": {
-        "sass": "^1.51.0"
+        "sass": "^1.56.1"
     }
 }
