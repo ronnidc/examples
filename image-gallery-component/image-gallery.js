@@ -52,44 +52,44 @@ class ImageGallery extends HTMLElement {
 
 	render() {
 		this.shadowRoot.innerHTML = `
-		<style>
-		img {
-			max-width: 100%;
-		}
-		.gallery-container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			background-color: #fff;	
-		  }
-	  
-		  .gallery-controls {
-			display: flex;
-			justify-content: center;
-			margin-top: 1rem;
-		  }
-	  
-		  .gallery-controls button {
-			margin: 0 1rem;
-		  }
-	  
-		  .fullscreen-btn {
-			position: absolute;
-			top: 1rem;
-			right: 1rem;
-		  }
-		</style>
+			<style>
+				img {
+					max-width: 100%;
+				}
+				.gallery-container {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					background-color: #fff;	
+				}
+			
+				.gallery-controls {
+					display: flex;
+					justify-content: center;
+					margin-top: 1rem;
+				}
+			
+				.gallery-controls button {
+					margin: 0 1rem;
+				}
+			
+				.fullscreen-btn {
+					position: absolute;
+					top: 1rem;
+					right: 1rem;
+				}
+			</style>
 
-		<div class="gallery-container">
-    <img class="gallery-image" />
-    <div class="gallery-caption"></div>
-    <div class="gallery-controls">
-      <button class="prev-btn">&laquo; Prev</button>
-      <button class="next-btn">Next &raquo;</button>
-    </div>
-    ${this.config.fullscreen ? '<button class="fullscreen-btn">Fullscreen</button>' : ''}
-  </div>
-`;
+			<div class="gallery-container">
+				<img class="gallery-image" />
+				<div class="gallery-caption"></div>
+				<div class="gallery-controls">
+					<button class="prev-btn">&laquo; Prev</button>
+					<button class="next-btn">Next &raquo;</button>
+				</div>
+				${this.config.fullscreen ? '<button class="fullscreen-btn">Fullscreen</button>' : ''}
+			</div>
+		`;
 
 		this.shadowRoot.querySelector('.prev-btn').addEventListener('click', this.prevImage);
 		this.shadowRoot.querySelector('.next-btn').addEventListener('click', this.nextImage);
