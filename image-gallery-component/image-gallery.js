@@ -15,11 +15,13 @@ class ImageGallery extends HTMLElement {
 	connectedCallback() {
 		const configScript = this.querySelector('script[type="application/json"]');
 		if (configScript) {
-			this.config = JSON.parse(configScript.textContent);
+		  this.config = JSON.parse(configScript.textContent);
 		}
 
 		this.render();
+		this.galleryImagesContainer = this.shadowRoot.querySelector('.gallery-images-container');
 		this.updateImage();
+	  
 		this.addSwipeListeners();
 	}
 
@@ -53,15 +55,38 @@ class ImageGallery extends HTMLElement {
 	render() {
 		this.shadowRoot.innerHTML = `
 			<style>
-				img {
-					max-width: 100%;
-				}
 				.gallery-container {
 					display: flex;
 					flex-direction: column;
 					align-items: center;
-					background-color: #fff;	
-				}
+					overflow: hidden;
+					position: relative;
+					width: 100%;
+				  }
+			
+				  .gallery-images-container {
+					display: flex;
+					transition: transform 0.5s ease-in-out;
+					width: 100%;
+				  }
+			
+				  .gallery-image-wrapper {
+					position: relative;
+					flex: none;
+					width: 100%;
+					overflow: hidden;
+				  }
+
+				  .gallery-image {
+					display: block;
+					width: 100%;
+					object-fit: contain;
+				  }
+			
+				  .gallery-caption {
+					text-align: center;
+				  }
+			
 			
 				.gallery-controls {
 					display: flex;
@@ -81,8 +106,14 @@ class ImageGallery extends HTMLElement {
 			</style>
 
 			<div class="gallery-container">
-				<img class="gallery-image" />
-				<div class="gallery-caption"></div>
+				<div class="gallery-images-container">
+					${this.config.images.map(image => `
+						<div class="gallery-image-wrapper">
+							<img class="gallery-image" src="${image.src}" />
+							<div class="gallery-caption">${image.caption}</div>
+						</div>
+					`).join('')}
+				</div>
 				<div class="gallery-controls">
 					<button class="prev-btn">&laquo; Prev</button>
 					<button class="next-btn">Next &raquo;</button>
@@ -99,20 +130,19 @@ class ImageGallery extends HTMLElement {
 		}
 	}
 
-	updateImage() {
-		const image = this.config.images[this.currentIndex];
-		this.shadowRoot.querySelector('.gallery-image').src = image.src;
-		this.shadowRoot.querySelector('.gallery-caption').textContent = image.caption;
+	updateImage(direction) {
+		const translateX = -100 * this.currentIndex;
+		this.galleryImagesContainer.style.transform = `translateX(${translateX}%)`;
 	}
 
 	prevImage() {
 		this.currentIndex = (this.currentIndex - 1 + this.config.images.length) % this.config.images.length;
-		this.updateImage();
+		this.updateImage('prev');
 	}
 
 	nextImage() {
 		this.currentIndex = (this.currentIndex + 1) % this.config.images.length;
-		this.updateImage();
+		this.updateImage('next');
 	}
 
 	toggleFullscreen() {
