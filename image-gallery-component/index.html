@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Image Gallery Web Component</title>
+	<meta name="description" content="An example of a image-gallery webcomponent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+	<link rel="stylesheet" href="../settings/styles/global.css">
+</head>
+
+<body>
+	<section class="container">
+		<article class="article">
+			<p>Image-gallery Webcomponent</p>
+		</article>
+	</section>
+
+	<hr class="spacer" />
+
+	<image-gallery id="gallery">
+		<script type="application/json">
+			{
+				"images": [
+					{
+						"src": "https://placehold.co/600x400/000000/FFF?text=Hello+Image 1",
+						"caption": "Image 1"
+					},
+					{
+						"src": "https://placehold.co/600x400/FF0000/0FF?text=Hello+Image 2",
+						"caption": "Image 2"
+					},
+					{
+						"src": "https://placehold.co/600x400/0000FF/FF0?text=Hello+Image 3",
+						"caption": "Image 3"
+					}
+				],
+				"fullscreen": true
+			}
+		</script>
+	</image-gallery>
+
+	<script type="module" src="image-gallery.js"></script>
+</body>
+
+</html>
