@@ -20,6 +20,34 @@ class ImageGallery extends HTMLElement {
 
 		this.render();
 		this.updateImage();
+		this.addSwipeListeners();
+	}
+
+	addSwipeListeners() {
+		let startX = 0;
+		let endX = 0;
+
+		const onTouchStart = (e) => {
+			startX = e.touches[0].clientX;
+		};
+
+		const onTouchMove = (e) => {
+			endX = e.touches[0].clientX;
+		};
+
+		const onTouchEnd = () => {
+			const threshold = 100;
+
+			if (startX - endX > threshold) {
+				this.nextImage();
+			} else if (endX - startX > threshold) {
+				this.prevImage();
+			}
+		};
+
+		this.shadowRoot.addEventListener('touchstart', onTouchStart);
+		this.shadowRoot.addEventListener('touchmove', onTouchMove);
+		this.shadowRoot.addEventListener('touchend', onTouchEnd);
 	}
 
 	render() {
