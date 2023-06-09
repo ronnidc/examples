@@ -1,0 +1,77 @@
+{
+	"BaseViewModel": {
+		"Language": "en-AU",
+		"IsError": false,
+		"NavigateBackwardLinkUrl": "/my-account/",
+		"NavigateBackwardLinkText": "My Account",
+		"ParentPageName": "My Account",
+		"IsMarketingPermissionsUnset": true,
+		"MarketingPermissionChannelsViewModel": {
+			"Enabled": false,
+			"Header": "Select how to receive information",
+			"ErrorMessage": "<p>Please select at least one option before proceeding.</p>",
+			"Channels": [
+				{
+					"Value": "Email",
+					"Label": "Email",
+					"Accepted": false
+				},
+				{
+					"Value": "Phone",
+					"Label": "Phone",
+					"Accepted": false
+				},
+				{
+					"Value": "Sms",
+					"Label": "Text message",
+					"Accepted": false
+				}
+			],
+			"IsUnset": false
+		},
+		"ConsentDescription": "<p>Consent description is an option for adding extra text lorem ipsum or tell you about forthcoming events via phone, text, email, or post lorem ipsum, dolor sit amet marketing.</p>",
+		"IntroductionText": "<p>From time to time, we at Coloplast would like to <a href='https://www.coloplast.us/global/declaration-of-consent/'><u>let you know</u></a> about relevant Coloplast products and services; share inspirational stories from other customers; or tell you about forthcoming events via phone, text, email, or post. Our communication to you will be based on the information you provided to us and your preferences and interests, including your heath data. The choice is yours &ndash; and as with any of our services, you may <a href='https://www.coloplast.com/global/privacy-notice/#section=_545865'><u>opt-out</u></a> at any time.</p>",
+		"ShowMessageBox": false,
+		"RedirectToUrl": "/my-account/my-products/",
+		"Email": "ronnidc+account10@gmail.com",
+		"FirstName": "Coloplast",
+		"LastName": "Testing",
+		"FullName": "Coloplast Testing",
+		"NavigationViewModel": {
+			"HierarchyNavigationEnabled": true,
+			"SubPages": [
+				{
+					"PageName": "My Products",
+					"PageUrl": "/my-account/my-products/",
+					"VisibleInNavigation": true
+				},
+				{
+					"PageName": "Consumer contact details page",
+					"PageUrl": "/my-account/consumer-contact-details-page/",
+					"VisibleInNavigation": true
+				},
+				{
+					"PageName": "Consumer Funding page",
+					"PageUrl": "/my-account/consumer-funding-page/",
+					"VisibleInNavigation": true
+				},
+				{
+					"PageName": "Consumer Marketing Permission Page",
+					"PageUrl": "/my-account/consumer-marketing-permission-page/",
+					"VisibleInNavigation": true
+				}
+			]
+		}
+	},
+	"CurrentPage": {
+		"PageName": "Consumer Marketing Permission Page",
+		"VisibleInHierarchyNavigation": "True",
+		"Header": "Would you like to stay informed?",
+		"WithdrawMarketingPermissionsButtonLabel": "Withdraw Marketing Permissions",
+		"SaveMarketingPermissionsButtonLabel": "Keep me informed",
+		"SaveMarketingPermissionChannelsButtonLabel": "Save changes",
+		"WithdrawMarketingPermissionHeadline": "Withdraw marketing permission",
+		"WithdrawMarketingPermissionButtonLabel": "Withdraw permission",
+		"WithdrawMarketingPermissionCancelButtonLabel": "Cancel"
+	}
+}
