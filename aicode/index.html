@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Content Component</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <content-component
+        title="Lorem ipsum dolor sit amet"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales, nibh eget venenatis vulputate, magna nisi tempus mi, nec congue ante lectus sed purus."
+        :buttons="['Button', 'Button']"
+        :flip="true"
+        imageSrc="path/to/image.jpg"
+        imageAlt="Example Image"
+      />
+    </div>
+
+    <script type="module">
+      import ContentComponent from './component.vue';
+
+      Vue.component('content-component', ContentComponent);
+
+      new Vue({
+        el: '#app'
+      });
+    </script>
+  </body>
+</html>
